@@ -17,22 +17,16 @@ class FlatIterator:
         item = self.whole_list[self.cursor]
         return item
 
-def test_1():
-
-    list_of_lists_1 = [
-        ['a', 'b', 'c'],
-        ['d', 'e', 'f', 'h', False],
-        [1, 2, None]
-    ]
+def test_1(list_of_lists):
 
     for flat_iterator_item, check_item in zip(
-            FlatIterator(list_of_lists_1),
+            FlatIterator(list_of_lists),
             ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
     ):
 
         assert flat_iterator_item == check_item
 
-    assert list(FlatIterator(list_of_lists_1)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
+    assert list(FlatIterator(list_of_lists)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
 
 
 if __name__ == '__main__':
@@ -46,6 +40,4 @@ if __name__ == '__main__':
     for item in FlatIterator(list_of_lists_1):
         print(item)
 
-    test_1()
-
-    
+    test_1(list_of_lists_1)
